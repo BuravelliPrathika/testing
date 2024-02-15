@@ -267,7 +267,18 @@ class appointment_link(BaseModel):
 
 class CustomerDataStore(BaseModel):
     name: str = Field(..., description="name of the customer")
-    # ... (other fields)
+    phone: str = Field(..., description="phone number of the customer")
+    email: str = Field(..., description="email of the customer")
+    make: str = Field(..., description="year of the car")
+    model: str = Field(..., description="a single car or a multiple models of the car with comma separated")
+    year:int=Field(..., description="year of the vehicle")
+    company_id:int=Field(..., description="id of the company")
+    location_id:int=Field(..., description="location id of the company")
+    start_date:str=Field(..., description="date and time of appointment")
+    appointment_timezone:str=Field(..., description="time zone")
+    intent:str=Field(..., description="costumer intent")
+    summary:str=Field(..., description="one line about summary of appointment,")
+    description:str=Field(..., description="one line about description about visit,")
 
 @tool
 def create_appointment_link(name: str, phone: str, email: str, make: str, model: str, year: int,
